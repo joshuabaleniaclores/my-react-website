@@ -9,11 +9,7 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
-    extend: {
-      fontFamily: {
-        body: ['"Arial"', "sans-serif"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
