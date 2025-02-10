@@ -1,49 +1,21 @@
-//import { useState } from "react";
-//import { X, AlignJustify } from "../config";
-
 const NavigationBar = () => {
-  //const [currentNav, setCurrentNav] = useState(false);
-
   const links = [
-    {
-      id: 1,
-      link: "home",
-    },
-    {
-      id: 2,
-      link: "about",
-    },
-    {
-      id: 3,
-      link: "portfolio",
-    },
-    {
-      id: 4,
-      link: "experience",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
+    { id: 1, link: "home" },
+    { id: 2, link: "about" },
+    { id: 3, link: "portfolio" },
+    { id: 4, link: "experience" },
+    { id: 5, link: "contact" },
   ];
 
   return (
-    <div
-      name="navbar"
-      className="flex flex-row justify-between item-center p-4 text-white bg-black w-full h-20"
-    >
-      <div className="">
-        <h1>Joshua Clores</h1>
-      </div>
-      <div>
-        <ul className="">
-          {links.map(({ id, link }) => (
-            <li key={id} className="float-start block">
-              <a>{link}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="flex justify-center items-center w-full p-6 shadow-md">
+      <ul className="flex space-x-10">
+        {links.map(({ id, link }) => (
+          <li key={id} className="cursor-pointer text-[#09122C] capitalize hover:text-violet-500 active:text-violet-500">
+            <a href={`#${link}`}>{link}</a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
