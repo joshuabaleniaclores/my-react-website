@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx}", "./src/components/**/*.{js,jsx}"],
+  content: ["./src/**/*.{html,js,jsx}", "./src/components/**/*.{html,js,jsx}"],
   darkMode: "class",
   theme: {
     screens: {
@@ -9,11 +9,7 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
-    extend: {
-      fontFamily: {
-        body: ['"Arial"', "sans-serif"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
