@@ -9,7 +9,18 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
-    extend: {},
+    extend: {
+      animation: {
+        textFade: "textFade 4s infinite alternate",
+        scrollBehavior: "smooth",
+      },
+      keyframes: {
+        textFade: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
+        },
+      },
+    },
   },
   plugins: [],
 };

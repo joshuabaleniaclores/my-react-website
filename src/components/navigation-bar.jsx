@@ -8,7 +8,7 @@ const NavigationBar = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center w-full p-6 shadow-md">
+    <nav className="flex justify-center items-center w-full p-6 shadow-md">
       <ul className="flex space-x-10">
         {links.map(({ id, link }) => (
           <li key={id} className="cursor-pointer text-[#09122C] capitalize hover:text-violet-500 active:text-violet-500">
@@ -16,7 +16,7 @@ const NavigationBar = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 
