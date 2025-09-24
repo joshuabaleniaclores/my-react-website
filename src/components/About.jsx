@@ -1,3 +1,5 @@
+import avatar from "../assets/avatar.png";
+
 export function About() {
   return (
     <section
@@ -7,8 +9,8 @@ export function About() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
           <img
-            src="/public/avatar.png"
-            alt="avatar"
+            src={avatar}
+            alt="Avatar"
             width={200}
             height={200}
             className="mx-auto rounded-full border-4 border-accent"
