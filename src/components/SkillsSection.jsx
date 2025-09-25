@@ -131,7 +131,7 @@ export function SkillsSection() {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="flex flex-col items-center bg-background rounded-xl shadow p-6"
+              className="flex flex-col items-center bg-background rounded-xl p-6"
             >
               {skill.icon}
               <span className="mt-4 text-lg font-semibold text-primary">
