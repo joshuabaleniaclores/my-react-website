@@ -1,6 +1,9 @@
+import { useState } from "react";
 import avatar from "../assets/avatar.png";
 
 export function About() {
+  const [showAbby, setShowAbby] = useState(1);
+
   return (
     <section
       id="about"
@@ -14,7 +17,12 @@ export function About() {
             width={200}
             height={200}
             className="mx-auto rounded-full border-4 border-accent"
+            onClick={() => setShowAbby(showAbby + 1)}
           />
+
+          {showAbby > 5 && (<p className="mt-6 text-xl md:text-2xl font-medium text-accent">
+            I LOVE YOU ABBY
+          </p>)}
 
           <p className="mt-6 text-xl md:text-2xl font-medium text-accent">
             Software Engineer • Web Development

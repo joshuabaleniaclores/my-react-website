@@ -22,9 +22,9 @@ export function NavBar() {
         </div>
 
         <nav className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <a
-              key={link.href}
+              key={index}
               href={link.href}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -57,9 +57,9 @@ export function NavBar() {
       {isMobileViewMenuOpen && (
         <div className="md:hidden border-t">
           <nav className="container flex flex-col items-center space-y-4 px-4 py-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
-                key={link.href}
+                key={index}
                 href={link.href}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >

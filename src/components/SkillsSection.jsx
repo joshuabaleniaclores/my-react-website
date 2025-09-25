@@ -126,10 +126,10 @@ export function SkillsSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skill) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:px-20">
+          {skills.map((skill, index) => (
             <div
-              key={skill.name}
+              key={index}
               className="flex flex-col items-center p-4 bg-background rounded-xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
               {skill.icon}
