@@ -130,7 +130,7 @@ export function SkillsSection() {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="flex flex-col items-center bg-background rounded-xl p-4"
+              className="flex flex-col items-center p-4 bg-background rounded-xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
               {skill.icon}
               <span className="mt-4 text-lg font-semibold text-primary">
