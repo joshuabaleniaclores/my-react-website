@@ -22,7 +22,7 @@ export function Footer() {
                 <a href="#about" className="hover:underline hover:text-primary-foreground transition-colors">About</a>
               </li>
               <li>
-                <a href="#Project" className="hover:underline hover:text-primary-foreground transition-colors">Project</a>
+                <a href="https://github.com/joshuabaleniaclores" target="_blank" className="hover:underline hover:text-primary-foreground transition-colors">Project</a>
               </li>
               <li>
                 <a href="#contact" className="hover:underline hover:text-primary-foreground transition-colors">Contact</a>
@@ -35,7 +35,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Get in Touch</h3>
             <div className="space-y-2 text-sm text-primary-foreground/80">
               <p>Email: <a href="mailto:joshuabaleniaclores@gmail.com" className="hover:underline">joshuabaleniaclores@gmail.com</a></p>
-              <p>Mobile: <a href="tel:+639566348951" className="hover:underline">(+63) 956 634 8951</a></p>
+              <p>Mobile: <span className="hover:underline">(+63) 956 634 8951</span></p>
               <div className="flex space-x-4 mt-4">
                 {/* GitHub */}
                 <a href="https://github.com/joshuabaleniaclores" target="_blank" rel="noopener noreferrer">

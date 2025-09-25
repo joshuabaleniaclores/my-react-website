@@ -55,7 +55,7 @@ export function NavBar() {
       </div>
 
       {isMobileViewMenuOpen && (
-        <div className="md:hidden border-t bg-background">
+        <div className="md:hidden border-t">
           <nav className="container flex flex-col items-center space-y-4 px-4 py-4">
             {navLinks.map((link) => (
               <a

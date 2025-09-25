@@ -115,15 +115,14 @@ const skills = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-12 bg-muted/30 scroll-mt-10">
+    <section id="skills" className="py-10 bg-muted/30 scroll-mt-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             My Tech Stacks
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Experienced in modern web development with expertise in React,
-            JavaScript, TypeScript, and Next.js.
+            Here are a few technologies I've been working with recently:
           </p>
         </div>
 
@@ -131,7 +130,7 @@ export function SkillsSection() {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="flex flex-col items-center bg-background rounded-xl p-6"
+              className="flex flex-col items-center bg-background rounded-xl p-4"
             >
               {skill.icon}
               <span className="mt-4 text-lg font-semibold text-primary">
