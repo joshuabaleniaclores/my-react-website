@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -31,6 +32,7 @@ export function NavBar() {
               {link.label}
             </a>
           ))}
+          <ThemeToggle />
         </nav>
 
         {/* Mobile menu button */}
@@ -66,6 +68,7 @@ export function NavBar() {
                 {link.label}
               </a>
             ))}
+            <ThemeToggle />
           </nav>
         </div>
       )}
