@@ -37,7 +37,7 @@ export function NavBar() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden"
+          className="md:hidden cursor-pointer"
           onClick={() => setIsMobileViewMenuOpen(!isMobileViewMenuOpen)}
         >
           <svg
