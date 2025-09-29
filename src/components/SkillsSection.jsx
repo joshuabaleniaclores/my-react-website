@@ -114,8 +114,9 @@ const skills = [
 ];
 
 export function SkillsSection() {
+
   return (
-    <section id="skills" className="py-10 bg-muted/30 scroll-mt-10">
+    <section id="skills" className="py-10 bg-gradient-to-br from-background via-muted/30 to-accent/5 scroll-mt-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
