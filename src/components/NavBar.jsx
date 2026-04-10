@@ -11,23 +11,23 @@ const navLinks = [
 
 export function NavBar() {
   const [isMobileViewMenuOpen, setIsMobileViewMenuOpen] = useState(false);
-  
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <div className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <span className="text-sm font-bold">JC</span>
-          </div>
-          <span className="text-xl font-bold text-primary">JOSHUA CLORES</span>
-        </div>
 
-        <nav className="hidden md:flex items-center space-x-6">
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        <a href="#about" className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white text-sm font-bold">
+            JC
+          </div>
+          <span className="font-semibold text-primary tracking-tight">Joshua Clores</span>
+        </a>
+
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link, index) => (
             <a
               key={index}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="relative text-sm text-muted-foreground hover:text-foreground transition-colors after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-px after:bg-accent hover:after:w-full after:transition-all after:duration-200"
             >
               {link.label}
             </a>
@@ -35,40 +35,37 @@ export function NavBar() {
           <ThemeToggle />
         </nav>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden cursor-pointer"
-          onClick={() => setIsMobileViewMenuOpen(!isMobileViewMenuOpen)}
-        >
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            className="cursor-pointer p-1.5 rounded-md hover:bg-muted transition-colors"
+            onClick={() => setIsMobileViewMenuOpen(!isMobileViewMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMobileViewMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {isMobileViewMenuOpen && (
-        <div className="md:hidden border-t">
-          <nav className="container flex flex-col items-center space-y-4 px-4 py-4">
+        <div className="md:hidden border-t border-border/50 bg-background">
+          <nav className="container flex flex-col px-4 py-2">
             {navLinks.map((link, index) => (
               <a
                 key={index}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="py-3 text-sm text-muted-foreground hover:text-foreground transition-colors border-b border-border/30 last:border-b-0"
+                onClick={() => setIsMobileViewMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <ThemeToggle />
           </nav>
         </div>
       )}

@@ -7,42 +7,73 @@ export function About() {
   return (
     <section
       id="about"
-      className="py-10 bg-gradient-to-br from-background via-muted/30 to-accent/5 scroll-mt-12"
+      className="py-14 sm:py-20 md:py-28 scroll-mt-16"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-4xl text-center">
-          <img
-            src={avatar}
-            alt="Avatar"
-            width={200}
-            height={200}
-            className="mx-auto rounded-full border-4 border-accent"
-            onClick={() => setShowAbby(showAbby + 1)}
-          />
-
-          {showAbby > 5 && (<p className="mt-6 text-xl md:text-2xl font-medium text-accent">
-            I LOVE YOU ABBY
-          </p>)}
-
-          <p className="mt-6 text-xl md:text-2xl font-medium text-accent">
-            Software Engineer • Web Development
-          </p>
-
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Hey! I&apos;m Joshua. I&apos;m a software engineer and web developer
-            passionate about building modern, responsive websites and
-            applications using tools like Next.js, React and TailwindCSS.
-            I&apos;m passionate about writing clean code, solving problems and
-            exploring new technologies to turn ideas into reality.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 text-lg rounded-md border border-input shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 inline-flex items-center justify-center font-medium"
+        <div className="mx-auto max-w-5xl flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+          {/* Text */}
+          <div className="flex-1 text-center md:text-left">
+            <p
+              className="text-accent text-xs font-semibold tracking-widest uppercase mb-3 animate-fade-up"
             >
-              Contact Me
-            </a>
+              Hey, I'm
+            </p>
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary leading-[1.1] tracking-tight animate-fade-up"
+              style={{ animationDelay: "80ms" }}
+            >
+              Joshua<br />Clores.
+            </h1>
+            <p
+              className="mt-4 text-lg font-medium text-muted-foreground animate-fade-up"
+              style={{ animationDelay: "160ms" }}
+            >
+              Software Engineer · React &amp; Next.js
+            </p>
+            <p
+              className="mt-4 text-base leading-relaxed text-muted-foreground max-w-lg mx-auto md:mx-0 animate-fade-up"
+              style={{ animationDelay: "240ms" }}
+            >
+              I&apos;m passionate about building modern, responsive web apps with clean code — using tools like Next.js, React, and Tailwind. I enjoy solving problems and turning ideas into reality.
+            </p>
+            <div
+              className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start animate-fade-up"
+              style={{ animationDelay: "320ms" }}
+            >
+              <a
+                href="#contact"
+                className="bg-accent hover:bg-accent/90 active:scale-[0.97] text-white px-6 py-2.5 rounded-md font-medium text-sm transition-all inline-flex items-center justify-center"
+              >
+                Get in touch
+              </a>
+              <a
+                href="#skills"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground active:scale-[0.97] px-6 py-2.5 rounded-md border border-border hover:border-foreground/20 transition-all inline-flex items-center justify-center"
+              >
+                View skills
+              </a>
+            </div>
+          </div>
+
+          {/* Avatar */}
+          <div
+            className="relative flex-shrink-0 animate-fade-up"
+            style={{ animationDelay: "100ms" }}
+          >
+            {showAbby > 5 && (
+              <p className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-medium text-accent whitespace-nowrap">
+                I LOVE YOU ABBY ♡
+              </p>
+            )}
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 animate-float">
+              <div className="absolute inset-0 rounded-full bg-accent/15 blur-3xl scale-110" />
+              <img
+                src={avatar}
+                alt="Joshua Clores"
+                className="relative w-full h-full rounded-full object-cover cursor-pointer border-2 border-accent/30 hover:border-accent/60 transition-colors"
+                onClick={() => setShowAbby(showAbby + 1)}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
+import { useInView } from "../hooks/useInView";
+
 const skills = [
   {
     name: "HTML",
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -18,7 +20,7 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -32,7 +34,7 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -46,7 +48,7 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -60,7 +62,7 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -74,7 +76,7 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -88,12 +90,12 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <title>Next.js</title>
-        <path fill="#000000" d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z" />
+        <path className="fill-foreground" d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z" />
       </svg>
     ),
   },
@@ -102,7 +104,7 @@ const skills = [
     icon: (
       <svg
         role="img"
-        className="h-8 w-8"
+        className="h-6 w-6 flex-shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -114,31 +116,41 @@ const skills = [
 ];
 
 export function SkillsSection() {
+  const [ref, isInView] = useInView(0.1);
 
   return (
-    <section id="skills" className="py-10 bg-gradient-to-br from-background via-muted/30 to-accent/5 scroll-mt-10">
+    <section ref={ref} id="skills" className="py-12 md:py-16 lg:py-20 scroll-mt-16 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            My Tech Stacks
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Here are a few technologies I've been working with recently:
-          </p>
-        </div>
+        <div className="mx-auto max-w-4xl">
+          <div
+            className={`mb-8 md:mb-10 transition-all duration-600 ease-out ${
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-primary">
+              Things I work with
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              My current tech stack.
+            </p>
+          </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:px-20">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-4 bg-background rounded-xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              {skill.icon}
-              <span className="mt-4 text-lg font-semibold text-primary">
-                {skill.name}
-              </span>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className={`flex items-center gap-3 p-3 sm:p-3.5 bg-background rounded-lg border border-border hover:border-accent/50 transition-colors ${
+                  isInView ? "animate-fade-up" : "opacity-0"
+                }`}
+                style={{ animationDelay: isInView ? `${index * 55}ms` : undefined }}
+              >
+                {skill.icon}
+                <span className="text-sm font-medium text-foreground min-w-0 truncate">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
