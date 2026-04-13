@@ -1,7 +1,5 @@
-"use client";
-
 import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -10,7 +8,7 @@ const navLinks = [
 ];
 
 export function NavBar() {
-  const [isMobileViewMenuOpen, setIsMobileViewMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
@@ -23,9 +21,9 @@ export function NavBar() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <a
-              key={index}
+              key={link.href}
               href={link.href}
               className="relative text-sm text-muted-foreground hover:text-foreground transition-colors after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-px after:bg-accent hover:after:w-full after:transition-all after:duration-200"
             >
@@ -39,11 +37,11 @@ export function NavBar() {
           <ThemeToggle />
           <button
             className="cursor-pointer p-1.5 rounded-md hover:bg-muted transition-colors"
-            onClick={() => setIsMobileViewMenuOpen(!isMobileViewMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMobileViewMenuOpen ? (
+              {isMobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -53,15 +51,15 @@ export function NavBar() {
         </div>
       </div>
 
-      {isMobileViewMenuOpen && (
+      {isMobileMenuOpen && (
         <div className="md:hidden border-t border-border/50 bg-background">
           <nav className="container flex flex-col px-4 py-2">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <a
-                key={index}
+                key={link.href}
                 href={link.href}
                 className="py-3 text-sm text-muted-foreground hover:text-foreground transition-colors border-b border-border/30 last:border-b-0"
-                onClick={() => setIsMobileViewMenuOpen(false)}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>

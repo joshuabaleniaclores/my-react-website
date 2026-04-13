@@ -11,7 +11,6 @@ export function Footer() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          {/* Branding */}
           <div>
             <div className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white text-sm font-bold">
@@ -24,7 +23,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Contact */}
           <div className="text-sm text-muted-foreground space-y-1.5">
             <a
               href="mailto:joshuabaleniaclores@gmail.com"
@@ -71,3 +69,5 @@ export function Footer() {
     </footer>
   );
 }
+
+export default Footer;

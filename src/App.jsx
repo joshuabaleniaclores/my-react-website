@@ -1,20 +1,26 @@
-import './styles/App.css'
-import { NavBar } from './components/NavBar.jsx'
-import { About } from './components/About.jsx'
-import { SkillsSection } from './components/SkillsSection.jsx'
-import { Footer } from './components/Footer.jsx'
+import { lazy, Suspense } from "react";
+import "./styles/App.css";
+import { NavBar } from "./components/NavBar.jsx";
+import { About } from "./components/About.jsx";
+
+const SkillsSection = lazy(() => import("./components/SkillsSection.jsx"));
+const Footer = lazy(() => import("./components/Footer.jsx"));
+
 function App() {
-  console.log("ILY ABBY, MY LOML");
   return (
     <>
       <NavBar />
       <main>
         <About />
-        <SkillsSection />
+        <Suspense fallback={null}>
+          <SkillsSection />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
