@@ -1,4 +1,5 @@
 import { useInView } from "../hooks/useInView";
+import { Brand } from "./Brand";
 
 export function Footer() {
   const [ref, isInView] = useInView(0.2);
@@ -6,25 +7,19 @@ export function Footer() {
   return (
     <footer ref={ref} id="contact" className="border-t border-border bg-background">
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-12">
+        <h2 className="sr-only">Contact</h2>
         <div
-          className={`flex flex-col md:flex-row md:items-start justify-between gap-8 md:gap-10 transition-all duration-700 ease-out ${
+          className={`flex flex-col md:flex-row md:items-start justify-between gap-8 md:gap-10 transition-[opacity,transform] duration-700 ease-out ${
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          {/* Branding */}
           <div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white text-sm font-bold">
-                JC
-              </div>
-              <span className="font-semibold text-primary">Joshua Clores</span>
-            </div>
+            <Brand />
             <p className="mt-2 text-sm text-muted-foreground">
               Building things for the web.
             </p>
           </div>
 
-          {/* Contact */}
           <div className="text-sm text-muted-foreground space-y-1.5">
             <a
               href="mailto:joshuabaleniaclores@gmail.com"
@@ -66,11 +61,11 @@ export function Footer() {
         </div>
 
         <div
-          className={`border-t border-border mt-8 md:mt-10 pt-6 text-xs text-muted-foreground/60 transition-all duration-700 delay-200 ease-out ${
+          className={`border-t border-border mt-8 md:mt-10 pt-6 text-xs text-muted-foreground/60 transition-opacity duration-700 delay-200 ease-out ${
             isInView ? "opacity-100" : "opacity-0"
           }`}
         >
-          © 2025 Joshua Clores
+          © {new Date().getFullYear()} Joshua Clores
         </div>
       </div>
     </footer>

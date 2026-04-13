@@ -10,7 +10,7 @@ export function SkillsSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl">
           <div
-            className={`mb-8 md:mb-10 transition-all duration-600 ease-out ${
+            className={`mb-8 md:mb-10 transition-[opacity,transform] duration-500 ease-out ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
