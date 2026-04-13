@@ -4,7 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/avatar.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Website</title>
+    <title>Joshua Clores - Software Engineer</title>
+    <meta name="description" content="Joshua Clores — Software Engineer specializing in React, Next.js, and Tailwind CSS. Building modern, responsive web applications." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Joshua Clores — Software Engineer" />
+    <meta property="og:description" content="Software Engineer specializing in React, Next.js, and Tailwind CSS. Building modern, responsive web applications." />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Joshua Clores — Software Engineer" />
+    <meta name="twitter:description" content="Software Engineer specializing in React, Next.js, and Tailwind CSS. Building modern, responsive web applications." />
+
+    <!-- Prevent theme flash: set dark class before React loads -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

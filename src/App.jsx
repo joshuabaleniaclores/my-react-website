@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
-import "./styles/App.css";
 import { NavBar } from "./components/NavBar.jsx";
 import { About } from "./components/About.jsx";
+import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 
 const SkillsSection = lazy(() => import("./components/SkillsSection.jsx"));
 const Footer = lazy(() => import("./components/Footer.jsx"));
@@ -12,13 +12,17 @@ function App() {
       <NavBar />
       <main>
         <About />
-        <Suspense fallback={null}>
-          <SkillsSection />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            <SkillsSection />
+          </Suspense>
+        </ErrorBoundary>
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }

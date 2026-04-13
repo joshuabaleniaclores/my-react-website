@@ -2,7 +2,7 @@ import { useState } from "react";
 import avatar from "../assets/avatar.png";
 
 export function About() {
-  const [showAbby, setShowAbby] = useState(1);
+  const [avatarClickCount, setAvatarClickCount] = useState(0);
 
   return (
     <section
@@ -11,10 +11,9 @@ export function About() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-5xl flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+          {/* Text */}
           <div className="flex-1 text-center md:text-left">
-            <p
-              className="text-accent text-xs font-semibold tracking-widest uppercase mb-3 animate-fade-up"
-            >
+            <p className="text-accent text-xs font-semibold tracking-widest uppercase mb-3 animate-fade-up">
               Hey, I'm
             </p>
             <h1
@@ -54,11 +53,12 @@ export function About() {
             </div>
           </div>
 
+          {/* Avatar */}
           <div
             className="relative flex-shrink-0 animate-fade-up"
             style={{ animationDelay: "100ms" }}
           >
-            {showAbby > 5 && (
+            {avatarClickCount >= 5 && (
               <p className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-medium text-accent whitespace-nowrap">
                 I LOVE YOU ABBY ♡
               </p>
@@ -69,7 +69,7 @@ export function About() {
                 src={avatar}
                 alt="Joshua Clores"
                 className="relative w-full h-full rounded-full object-cover cursor-pointer border-2 border-accent/30 hover:border-accent/60 transition-colors"
-                onClick={() => setShowAbby((prev) => prev + 1)}
+                onClick={() => setAvatarClickCount((prev) => prev + 1)}
               />
             </div>
           </div>

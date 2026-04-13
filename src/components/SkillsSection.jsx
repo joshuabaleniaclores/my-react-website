@@ -1,5 +1,6 @@
 import { useInView } from "../hooks/useInView";
 import { skills } from "../data/skills";
+import { SkillIcon } from "./SkillIcon";
 
 export function SkillsSection() {
   const [ref, isInView] = useInView(0.1);
@@ -28,7 +29,7 @@ export function SkillsSection() {
                 }`}
                 style={{ animationDelay: isInView ? `${index * 55}ms` : undefined }}
               >
-                {skill.icon}
+                <SkillIcon skill={skill} />
                 <span className="text-sm font-medium text-foreground min-w-0 truncate">
                   {skill.name}
                 </span>

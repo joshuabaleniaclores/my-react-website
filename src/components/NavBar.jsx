@@ -39,8 +39,16 @@ export function NavBar() {
             className="cursor-pointer p-1.5 rounded-md hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-nav"
           >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              aria-hidden="true"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {isMobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -53,7 +61,7 @@ export function NavBar() {
 
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-border/50 bg-background">
-          <nav className="container flex flex-col px-4 py-2">
+          <nav id="mobile-nav" className="container flex flex-col px-4 py-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
